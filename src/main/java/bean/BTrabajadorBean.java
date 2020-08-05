@@ -5,7 +5,6 @@
  */
 package bean;
 
-import dao.CRolCatalogoDAO;
 import dao.CTrabajadorDAO;
 import dao.CUsuarioDAO;
 import java.io.Serializable;
@@ -15,7 +14,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import modelo.RolCatalogo;
 import modelo.Trabajador;
 import modelo.Usuario;
 
