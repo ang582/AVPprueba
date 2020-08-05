@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Insertar rol</title>
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/custom.css"/>
+        
+        <!--PARA QUE EL NAVEGADOR SEPA QUE EL SITIO ES RESPONSIVE-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        
+        <p:growl id="msj" showDetail="true">
+            <p:autoUpdate/>
+        </p:growl>
+        
+        <h:form>
+            <div class="container">
+                <div class="row">
+                    <center><h5>Portal de trabajadores</h5></center>
+                    
+                    <div class="col s12 m4 l4 xl4"></div>
+                    <div class="col s12 m4 l4 xl4">
+                       
+                        <div class="card">
+                            
+                            <div class="card-content">
+                                <h5>Inicio de sesión</h5>
+                                <div class="row">
+                                    <div class="col s12 m12 l12 xl12">
+                                        <label for="usr">Usuario: </label>
+                                        <p:inputText id="usr" value="#{bTrabajadorBean.usuarioBean.usr}"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12 m12 l12 xl12">
+                                        <label for="pass">Contraseña: </label>
+                                        <p:password id="pass" value="#{bTrabajadorBean.usuarioBean.pass}"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12 m12 l12 xl12">
+                                        <p:commandLink class="btn waves-effect" actionListener="#{bLoginBean.login(bTrabajadorBean.usuarioBean.usr, bTrabajadorBean.usuarioBean.pass)}" style="display:block;">Entrar</p:commandLink>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12 m12 l12 xl12">
+                                        <p:commandLink class="center" action="registro?faces-redirect=true" style="display:block;">Registrar nuevo trabajador</p:commandLink>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12 m12 l12 xl12">
+                                        <p:commandLink class="center" action="insertar_rol?faces-redirect=true" style="display:block;">Registrar nuevo rol</p:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m4 l4 xl4"></div>
+                    
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

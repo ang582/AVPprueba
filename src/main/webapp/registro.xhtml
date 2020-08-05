@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      
+    <h:head>
+        <title>Registro de trabajadores</title>
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/custom.css"/>
+
+        <!--PARA QUE EL NAVEGADOR SEPA QUE EL SITIO ES RESPONSIVE-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body   onload="#{bRolCatalogoBean.listar()}">
+        
+        <p:growl id="msj" showDetail="true">
+            <p:autoUpdate/>
+        </p:growl>
+        
+        <h:form id="formulario">
+            <div class="row">
+                <center><h5>Registrar trabajadores</h5></center>
+
+                <div class="col m3 l3 xl3"></div>
+                <div class="col s12 m6 l6 xl6">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col s12 m6 l6 xl6">
+                                    <label for="cod">Código: </label>
+                                    <p:inputText id="cod" value="#{bTrabajadorBean.trabajadorBean.id_trabajador}" />
+                                </div>
+                                <div class="col s12 m6 l6 xl6">
+                                    <label for="rol">Rol: </label>
+                                    <p:selectOneMenu id="rol" value="#{bTrabajadorBean.usuarioBean.id_rol_catalogo}" style="display:block;" required="true">
+                                        <f:selectItem itemLabel="Seleccione un rol" noSelectionOption="true"/>
+                                        <f:selectItems value="#{bRolCatalogoBean.listaRolCatalogoBean}" var="rol" itemValue="#{rol.id_rol_catalogo}" itemLabel="#{rol.nombre_rol}"/>
+                                    </p:selectOneMenu>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12 m6 l6 xl6">
+                                    <label for="nom1">Primer nombre: </label>
+                                    <p:inputText id="nom1" value="#{bTrabajadorBean.trabajadorBean.nombre1}"/>
+                                </div>
+                                <div class="col s12 m6 l6 xl6">
+                                    <label for="nom2">Segundo nombre: </label>
+                                    <p:inputText id="nom2" value="#{bTrabajadorBean.trabajadorBean.nombre2}"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12 m6 l6 xl6">
+                                    <label for="ap1">Primer apellido: </label>
+                                    <p:inputText id="ap1" value="#{bTrabajadorBean.trabajadorBean.apellido1}"/>
+                                </div>
+                                <div class="col s12 m6 l6 xl6">
+                                    <label for="ap2">Segundo apellido: </label>
+                                    <p:inputText id="ap2" value="#{bTrabajadorBean.trabajadorBean.apellido2}" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12 m6 l6 xl6">
+                                    <label for="fecha">Fecha de nacimiento: </label>
+                                    <p:inputMask id="fecha" value="#{bTrabajadorBean.trabajadorBean.fecha_nac}"  mask="99/99/9999"/>
+                                </div>
+                                <div class="col s12 m6 l6 xl6">
+                                    <label for="dpi">DPI: </label>
+                                    <p:inputText id="dpi" value="#{bTrabajadorBean.trabajadorBean.dpi}"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12 m12 l12 xl12">
+                                    <label for="puesto">Puesto: </label>
+                                    <p:inputText id="puesto" value="#{bTrabajadorBean.trabajadorBean.puesto}"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12 m6 l6 xl6">
+                                    <label for="usr">Usuario: </label>
+                                    <p:inputText id="usr" value="#{bTrabajadorBean.usuarioBean.usr}"/>
+                                </div>
+                                <div class="col s12 m6 l6 xl6">
+                                    <label for="pass">Contraseña: </label>
+                                    <p:password id="pass" value="#{bTrabajadorBean.usuarioBean.pass}"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12 m12 l12 xl12">
+                                    <p:commandLink update=":formulario msj" class="btn waves-effect" actionListener="#{bTrabajadorBean.insertar()}" style="display:block;">Agregar</p:commandLink>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col m3 l3 xl3"></div>
+            </div>
+        </h:form>
+
+        <h:form>
+            <div class="row">
+                <div class="col s12 m12 l12 xl12">
+                    <h:commandLink class="center" action="index?faces-redirect=true" style="display:block;">Regresar al inicio</h:commandLink>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

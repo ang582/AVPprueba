@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Insertar rol</title>
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/custom.css"/>
+
+        <!--PARA QUE EL NAVEGADOR SEPA QUE EL SITIO ES RESPONSIVE-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body onload="#{bRolCatalogoBean.listar()}">
+
+        <div class="container">
+
+            <div class="row">
+                <center><h5>Mantenimiento de roles</h5></center>
+
+                <h:form id="formulario">
+                    <div class="col s12 m6 l6 xl6">
+
+
+                        <div class="card">
+
+                            <div class="card-content">
+                                <h5>Nuevo rol</h5>
+                                <div class="row">
+                                    <div class="col s12 m12 l12 xl12">
+                                        <label for="nom">Nombre del rol: </label>
+                                        <p:inputText id="nom" value="#{bRolCatalogoBean.rolCatalogoBean.nombre_rol}"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12 m12 l12 xl12">
+                                        <p:commandLink class="btn waves-effect" actionListener="#{bRolCatalogoBean.insertar(bRolCatalogoBean.rolCatalogoBean.nombre_rol)}" style="display:block;" action="insertar_rol?faces-redirect=true">Agregar</p:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
+                <h:form id="tabla">
+                    <div class="col s12 m6 l6 xl6">
+
+                        <div class="card">
+                            <div class="card-content">
+                                <h5>Roles</h5>
+                                <div class="row">
+                                    <div class="col s12 m12 l12 xl12">
+                                        <p:dataTable id="tablaRol" var="rol" value="#{bRolCatalogoBean.listaRolCatalogoBean}" emptyMessage="No hay registros">
+
+
+                                            <p:column headerText="Rol">
+                                                <h:outputText value="#{rol.nombre_rol}"/>
+                                            </p:column>
+                                            
+                                            <p:column headerText="Modificar">
+                                                <p:commandLink update=":formulario" actionListener="#{bRolCatalogoBean.modificar(rol.id_rol_catalogo)}">Modificar</p:commandLink>
+                                            </p:column>
+                                            
+                                            <p:column headerText="Eliminar">
+                                                <h:commandLink actionListener="#{bRolCatalogoBean.eliminar(rol.id_rol_catalogo)}">Eliminar</h:commandLink>
+                                            </p:column>
+
+                                        </p:dataTable>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
+                
+              
+            </div>
+              <div class="row">
+                <h:form>
+                <h:commandLink class="center" action="index?faces-redirect=true" style="display:block;">Regresar al inicio</h:commandLink>
+                </h:form>
+                    </div>
+        </div>
+
+    </h:body>
+</html>

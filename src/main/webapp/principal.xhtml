@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Página principal</title>
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/custom.css"/>
+
+        <!--PARA QUE EL NAVEGADOR SEPA QUE EL SITIO ES RESPONSIVE-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class="container">
+                <div class="row">
+                    <center><h5>Bienvenido #{bLoginBean.usuarioBean.usr}</h5></center>
+                    <center><h5>Su rol es #{bLoginBean.usuarioBean.nombre_rol}</h5></center>
+                    
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>
