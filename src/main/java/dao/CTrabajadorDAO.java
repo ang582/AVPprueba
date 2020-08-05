@@ -7,8 +7,6 @@ package dao;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import modelo.Trabajador;
 
 /**

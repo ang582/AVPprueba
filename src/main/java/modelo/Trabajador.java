@@ -5,8 +5,6 @@
  */
 package modelo;
 
-import java.sql.Date;
-
 /**
  *
  * @author angelcifuentes
