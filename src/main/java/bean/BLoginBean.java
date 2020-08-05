@@ -68,7 +68,6 @@ public class BLoginBean implements Serializable {
             System.out.println("CONTRASEÑA INCORRECTA");
         }
         
-        this.usuarioBean= new Usuario();
 
     }
 
