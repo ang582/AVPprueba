@@ -39,7 +39,7 @@ public class CTrabajadorDAO extends Conexion implements ITrabajadorDAO{
             cx.commit();
             stmt.close();
             
-            System.out.println("LISTO");
+            System.out.println("LISTO ");
         }catch(SQLException e){
             e.printStackTrace();
             
